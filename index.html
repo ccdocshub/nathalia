@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="Psicoterapia, terapia corporal e práticas integrativas na Gold Coast e online. Um espaço para lembrar quem você é.">
+  <title>Nathalia Reschke | Pure Energy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f8f6f1;
+      --paper-deep: #eee9df;
+      --ink: #202320;
+      --muted: #6e706b;
+      --clay: #a86d53;
+      --clay-dark: #87533f;
+      --forest: #33413b;
+      --line: rgba(48, 55, 49, .16);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --content: 1240px;
+      font-synthesis: none;
+      color-scheme: light;
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(var(--content), calc(100% - 54px)); margin-inline: auto; }
+    .serif { font-family: var(--serif); font-weight: 400; }
+    .eyebrow { margin: 0 0 13px; color: var(--clay); font-size: 10px; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; }
+    .section { padding: 72px 0; }
+    .section-heading { margin-bottom: 24px; }
+    .section-heading h2 { margin: 0; font: 400 48px/1.08 var(--serif); letter-spacing: 0; }
+    .section-heading p:not(.eyebrow) { max-width: 600px; margin: 10px 0 0; color: var(--muted); font: 400 16px/1.45 var(--serif); }
+    .button { display: inline-flex; min-height: 43px; align-items: center; justify-content: center; gap: 13px; padding: 0 23px; border: 1px solid transparent; border-radius: 99px; background: var(--clay); color: white; cursor: pointer; font: 400 15px var(--serif); transition: background .25s, color .25s, transform .25s, box-shadow .25s; }
+    .button:hover { transform: translateY(-2px); background: var(--clay-dark); box-shadow: 0 9px 22px rgba(90, 58, 43, .16); }
+    .button .arrow { font: 18px var(--sans); transition: transform .25s; }
+    .button:hover .arrow { transform: translateX(4px); }
+    .button--outline { border-color: rgba(168, 109, 83, .65); background: transparent; color: var(--clay-dark); }
+    .button--outline:hover { background: var(--clay); color: white; }
+    .button--light { border-color: rgba(255,255,255,.7); background: transparent; color: white; }
+    .button--light:hover { background: white; color: var(--forest); }
+
+    .site-header { position: sticky; z-index: 20; top: 0; height: 76px; border-bottom: 1px solid rgba(255,255,255,.16); background: #27362f; box-shadow: 0 3px 18px rgba(32,35,32,.12); color: white; }
+    .site-header.scrolled, .site-header.menu-visible { background: #27362f; }
+    .nav { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 10px; }
+    .brand-mark { width: 46px; height: 46px; object-fit: contain; }
+    .brand-copy { display: grid; line-height: 1.05; }
+    .brand-copy strong { font: 500 15px var(--serif); }
+    .brand-copy small { margin-top: 5px; font-size: 8px; letter-spacing: .22em; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 34px); margin-left: auto; }
+    .nav-links a { position: relative; padding: 7px 0; font: 400 14px var(--serif); white-space: nowrap; }
+    .nav-links a::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: var(--clay); content: ""; transform: scaleX(0); transform-origin: right; transition: transform .25s; }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .language { display: flex; align-items: center; gap: 7px; }
+    .language button { display: grid; width: 31px; height: 30px; place-items: center; padding: 0; border: 1px solid transparent; border-radius: 8px; background: transparent; cursor: pointer; opacity: .52; transition: opacity .2s, border-color .2s, transform .2s; }
+    .language button:hover { transform: translateY(-2px); opacity: 1; }
+    .language button[aria-pressed="true"] { border-color: var(--clay); opacity: 1; }
+    .flag { font-size: 19px; line-height: 1; }
+    .nav-book { min-height: 44px; padding-inline: 21px; white-space: nowrap; }
+    .menu-toggle { display: none; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; background: transparent; cursor: pointer; }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { display: block; width: 17px; height: 1.5px; background: currentColor; content: ""; transition: transform .2s; }
+    .menu-toggle span { position: relative; }
+    .menu-toggle span::before, .menu-toggle span::after { position: absolute; left: 0; }
+    .menu-toggle span::before { top: -5px; }
+    .menu-toggle span::after { top: 5px; }
+    .menu-toggle[aria-expanded="true"] span { background: transparent; }
+    .menu-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+    .mobile-panel { display: none; }
+
+    .hero { position: relative; display: flex; min-height: max(470px, min(650px, 62svh)); align-items: center; overflow: hidden; background: #ded8ce; }
+    .hero::before { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, var(--paper) 0%, rgba(247,244,238,.98) 42%, rgba(247,244,238,.84) 54%, rgba(247,244,238,.08) 69%, transparent 100%); content: ""; }
+    .hero-image { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-inner { position: relative; z-index: 2; padding-top: 0; }
+    .hero-copy { width: min(590px, 52%); }
+    .hero h1 { margin: 0; font: 400 60px/1.03 var(--serif); letter-spacing: 0; }
+    .hero h1 em { color: var(--clay); font-weight: 400; }
+    .hero-sub { margin: 17px 0 0; color: var(--clay-dark); font: italic 400 24px/1.25 var(--serif); }
+    .hero-description { max-width: 495px; margin: 15px 0 24px; color: #5e625d; font: 400 16px/1.55 var(--serif); }
+    .hero-note { position: absolute; right: 32px; bottom: 23px; z-index: 2; color: rgba(255,255,255,.86); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; writing-mode: vertical-rl; }
+    .hero-orbit { position: absolute; right: -145px; bottom: -350px; width: 620px; height: 620px; border: 1px solid rgba(197,154,106,.7); border-radius: 50%; pointer-events: none; }
+    .scroll-cue { position: absolute; bottom: 24px; left: 50%; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(51,65,59,.24); border-radius: 50%; color: var(--forest); animation: bob 2.4s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(6px); } }
+
+    .about { position: relative; overflow: hidden; padding: 40px 0 48px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(38px, 7vw, 88px); }
+    .about-photo { position: relative; min-height: 460px; }
+    .about-photo-main { position: absolute; inset: 0 12% 0 0; overflow: hidden; border-radius: 8px; background: var(--paper-deep); box-shadow: 0 10px 26px rgba(32,35,32,.1); }
+    .about-photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; transition: transform .7s; }
+    .about-photo:hover .about-photo-main img { transform: scale(1.035); }
+    .about-copy h2 { max-width: 520px; margin: 0 0 25px; font: 400 60px/.99 var(--serif); }
+    .about-copy h2 em { color: var(--clay); }
+    .about-copy p { max-width: 510px; margin: 0 0 15px; color: #62645f; font: 400 16px/1.55 var(--serif); }
+    .signature { margin: 22px 0 19px; color: var(--forest); font: italic 400 21px var(--serif); }
+
+    .services { padding: 34px 0 60px; background: var(--paper-deep); }
+    .section-topline { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+    .carousel-controls { display: flex; gap: 8px; padding-bottom: 8px; }
+    .icon-button { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; transition: border-color .2s, background .2s, color .2s, transform .2s; }
+    .icon-button:hover { transform: translateY(-2px); border-color: var(--forest); background: var(--forest); color: white; }
+    .carousel { display: flex; gap: 14px; overflow-x: auto; padding: 3px 2px 15px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .carousel::-webkit-scrollbar { display: none; }
+    .service-card { flex: 0 0 calc((100% - 42px) / 4); min-width: 0; overflow: hidden; border: 1px solid rgba(48,55,49,.1); border-radius: 8px; background: var(--paper); box-shadow: 0 4px 14px rgba(51,65,59,.06); scroll-snap-align: start; transition: transform .3s, box-shadow .3s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 13px 30px rgba(51,65,59,.11); }
+    .service-image { position: relative; aspect-ratio: 1.42; overflow: hidden; background: #ddd6ca; }
+    .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .service-card:hover .service-image img { transform: scale(1.05); }
+    .service-tag { position: absolute; top: 12px; left: 12px; padding: 7px 12px; border: 1px solid rgba(255,255,255,.5); border-radius: 99px; background: var(--forest); box-shadow: 0 3px 12px rgba(24,35,29,.2); color: white; font-size: 11px; font-weight: 600; }
+    .service-card-body { padding: 14px; }
+    .service-card h3 { margin: 0; font: 500 18px/1.2 var(--serif); }
+    .service-card p { min-height: 46px; margin: 7px 0 10px; color: var(--muted); font: 400 12px/1.4 var(--serif); }
+    .service-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .price { color: var(--muted); font-size: 11px; }
+    .signature-tag { color: var(--clay); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .book-small { min-height: 37px; padding: 0 16px; font-size: 13px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin: 10px 0 25px; }
+    .carousel-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: #c7c1b8; cursor: pointer; transition: transform .2s, background .2s; }
+    .carousel-dot.active { transform: scale(1.35); background: var(--forest); }
+    .service-help { margin: 0; text-align: center; color: var(--muted); font: 400 14px var(--serif); }
+    .text-link { margin-left: 5px; border-bottom: 1px solid var(--clay); color: var(--clay-dark); }
+
+    .quote { position: relative; display: grid; min-height: 360px; place-items: center; overflow: hidden; background: var(--forest); color: white; text-align: center; }
+    .quote img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .28; }
+    .quote::after { position: absolute; inset: 0; background: rgba(27,39,34,.43); content: ""; }
+    .quote-inner { position: relative; z-index: 1; max-width: 850px; padding: 70px 24px; }
+    .quote blockquote { margin: 0; font: italic 400 48px/1.27 var(--serif); }
+    .quote .signature { margin: 26px 0 0; color: #e1c5a5; }
+
+    .groups { padding-bottom: 60px; }
+    .group-card { position: relative; flex: 0 0 calc((100% - 42px) / 4); min-width: 0; aspect-ratio: .82; overflow: hidden; border-radius: 8px; background: var(--forest); scroll-snap-align: start; }
+    .group-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s; }
+    .group-card:hover img { transform: scale(1.06); }
+    .group-card::after { position: absolute; inset: 40% 0 0; background: linear-gradient(transparent, rgba(18,27,24,.8)); content: ""; }
+    .group-card h3 { position: absolute; z-index: 1; right: 15px; bottom: 15px; left: 15px; margin: 0; color: white; font: 400 20px/1.2 var(--serif); }
+    .center-action { display: flex; justify-content: center; margin-top: 19px; }
+
+    .journeys { background: #e6e9e2; }
+    .journey-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .journey-card { overflow: hidden; border: 1px solid rgba(48,55,49,.13); border-radius: 8px; background: var(--paper); transition: transform .3s, box-shadow .3s; }
+    .journey-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(51,65,59,.1); }
+    .journey-card img { width: 100%; aspect-ratio: 1.65; object-fit: cover; transition: transform .6s; }
+    .journey-card:hover img { transform: scale(1.04); }
+    .journey-body { padding: 16px; }
+    .journey-body h3 { margin: 0 0 8px; color: var(--forest); font: 500 20px var(--serif); }
+    .journey-body p { min-height: 56px; margin: 0; color: var(--muted); font: 400 13px/1.45 var(--serif); }
+    .journey-format { display: inline-block; margin-top: 15px; padding: 4px 9px; border-radius: 99px; background: #dde5dd; color: var(--forest); font-size: 10px; }
+    .journeys .center-action { justify-content: flex-start; margin-top: 30px; }
+
+    .moments { padding-bottom: 64px; }
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 150px; gap: 10px; }
+    .gallery-item { position: relative; overflow: hidden; padding: 0; border: 0; border-radius: 8px; background: var(--paper-deep); cursor: zoom-in; }
+    .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-row: span 2; }
+    .gallery-item:nth-child(3) { grid-row: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s, filter .4s; }
+    .gallery-item:hover img { transform: scale(1.055); filter: saturate(.83); }
+    .gallery-item::after { position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.25); content: ""; pointer-events: none; }
+
+    .contact { position: relative; padding: 72px 0 0; overflow: hidden; background: #35423c; color: white; }
+    .contact::before { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(25,39,33,.88), rgba(25,39,33,.61)), url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=85") center 54%/cover; content: ""; }
+    .contact-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 38px; padding-bottom: 58px; }
+    .contact h2 { max-width: 690px; margin: 0; font: 400 60px/1.05 var(--serif); }
+    .contact-copy { max-width: 600px; margin: 17px 0 0; color: rgba(255,255,255,.78); font: 400 17px/1.5 var(--serif); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+    .contact-mark { width: 240px; height: 240px; color: rgba(239,218,191,.67); }
+    .contact-info { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); align-items: center; gap: 22px; padding: 25px 0 29px; border-top: 1px solid rgba(255,255,255,.26); }
+    .contact-info p { margin: 0; color: rgba(255,255,255,.85); font-size: 13px; }
+    .contact-info strong { display: block; margin-bottom: 4px; color: white; font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+    .contact-info a:hover { color: #e1c5a5; }
+
+    .footer { padding: 38px 0 20px; background: #27362f; color: white; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand .brand-mark { width: 72px; height: 90px; }
+    .footer-brand p { margin: 13px 0 0; color: rgba(255,255,255,.58); font: italic 15px var(--serif); }
+    .footer h3 { margin: 4px 0 13px; color: #d7b59a; font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+    .footer-column a { display: block; width: fit-content; margin: 7px 0; color: rgba(255,255,255,.78); font: 400 13px var(--serif); transition: color .2s; }
+    .footer-column a:hover { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 17px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.5); font-size: 10px; }
+    .footer-bottom a { margin-left: 14px; }
+    .mobile-cta { display: none; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    dialog { width: min(92vw, 1100px); max-width: none; max-height: 90vh; padding: 0; border: 0; background: transparent; overflow: visible; }
+    dialog::backdrop { background: rgba(20,25,22,.88); backdrop-filter: blur(5px); }
+    .lightbox-image { display: block; max-width: 100%; max-height: 82vh; margin: auto; object-fit: contain; }
+    .lightbox-close { position: absolute; top: -44px; right: 0; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: transparent; color: white; cursor: pointer; }
+    .lightbox-caption { margin: 12px 0 0; color: white; text-align: center; font: 400 16px var(--serif); }
+    :focus-visible { outline: 2px solid var(--clay); outline-offset: 4px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 980px) {
+      .wrap { width: min(var(--content), calc(100% - 44px)); }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 13px; }
+      .brand-copy { display: none; }
+      .hero h1 { font-size: 44px; }
+      .hero-sub { font-size: 22px; }
+      .about-copy h2 { font-size: 52px; }
+      .quote blockquote { font-size: 40px; }
+      .contact h2 { font-size: 54px; }
+      .service-card { flex-basis: calc((100% - 42px) / 4); min-width: 0; }
+      .group-card { flex-basis: calc((100% - 42px) / 4); min-width: 0; }
+      .service-card-body { padding: 12px; }
+      .service-card h3 { font-size: 16px; }
+      .service-card p { font-size: 11px; }
+      .journey-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-mark { width: 180px; height: 180px; }
+    }
+    @media (max-width: 720px) {
+      :root { scroll-padding-top: 68px; }
+      body { padding-bottom: 68px; font-size: 14px; }
+      .wrap { width: calc(100% - 38px); }
+      .section { padding: 58px 0; }
+      .section-heading { margin-bottom: 25px; }
+      .section-heading h2 { font-size: 40px; }
+      .section-heading p:not(.eyebrow) { font-size: 16px; }
+      .site-header { height: 66px; background: #27362f; box-shadow: 0 2px 12px rgba(32,35,32,.12); }
+      .brand-mark { width: 40px; height: 40px; }
+      .brand-copy { display: grid; }
+      .brand-copy strong { font-size: 14px; }
+      .brand-copy small { font-size: 7px; }
+      .nav-links, .nav > .language, .nav-book { display: none; }
+      .menu-toggle { display: grid; margin-left: auto; }
+      .mobile-panel { position: fixed; z-index: 19; inset: 66px 0 68px; display: flex; flex-direction: column; gap: 0; padding: 20px 25px 30px; background: var(--paper); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .22s, transform .22s; }
+      .mobile-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .mobile-panel > a { padding: 16px 0; border-bottom: 1px solid var(--line); font: 400 25px var(--serif); }
+      .mobile-panel .language { margin: 24px 0; }
+      .mobile-panel .language button { width: 42px; height: 39px; }
+      .mobile-panel .language .flag { font-size: 23px; }
+      .mobile-panel .button { align-self: flex-start; }
+      .hero { min-height: 720px; align-items: end; background: #e9e1d7; }
+      .hero-image { inset: 0 0 auto; width: 100%; height: 55%; object-position: 75% 42%; }
+      .hero::before { background: linear-gradient(0deg, var(--paper) 34%, rgba(247,244,238,.96) 42%, rgba(247,244,238,.08) 78%); }
+      .hero-inner { width: 100%; padding: 0 0 72px; }
+      .hero-copy { width: 100%; }
+      .hero h1 { max-width: 600px; font-size: 43px; }
+      .hero .eyebrow { max-width: 330px; font-size: 9px; line-height: 1.8; }
+      .hero-sub { font-size: 20px; }
+      .hero-description { margin: 11px 0 18px; font-size: 15px; }
+      .hero .button { width: 100%; }
+      .hero-orbit { right: -255px; bottom: -220px; width: 430px; height: 430px; }
+      .hero-note { display: none; }
+      .scroll-cue { bottom: 19px; left: auto; right: 20px; }
+      .about { padding: 30px 0 54px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo { min-height: min(116vw, 440px); margin-right: 20px; }
+      .about-photo-main { right: 11%; }
+      .about-copy h2 { margin-bottom: 18px; font-size: 53px; }
+      .about-copy p { font-size: 15px; }
+      .about-copy .button { width: 100%; }
+      .services { padding: 55px 0; }
+      .section-topline { align-items: center; }
+      .carousel-controls { padding-bottom: 0; }
+      .icon-button { width: 36px; height: 36px; }
+      .service-card { flex-basis: 78%; min-width: 0; }
+      .service-image { aspect-ratio: 1.16; }
+      .service-card h3 { font-size: 19px; }
+      .quote { min-height: 320px; }
+      .quote-inner { padding: 62px 24px; }
+      .quote blockquote { font-size: 32px; }
+      .groups { padding-bottom: 52px; }
+      .group-card { flex-basis: 72%; min-width: 0; aspect-ratio: .76; }
+      .group-card h3 { font-size: 23px; }
+      .journey-grid { grid-template-columns: 1fr; gap: 13px; }
+      .journey-card { display: grid; grid-template-columns: 35% 1fr; }
+      .journey-card img { height: 100%; min-height: 178px; aspect-ratio: auto; }
+      .journey-body { padding: 17px 15px; }
+      .journey-body h3 { font-size: 20px; }
+      .journey-body p { min-height: 0; font-size: 13px; }
+      .journey-format { margin-top: 10px; }
+      .journeys .center-action { margin-top: 23px; }
+      .journeys .button { width: 100%; }
+      .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 125px; gap: 9px; }
+      .gallery-item:nth-child(1), .gallery-item:nth-child(5) { grid-row: span 2; }
+      .gallery-item:nth-child(3) { grid-row: span 2; }
+      .moments .center-action .button { width: 100%; }
+      .contact { padding-top: 73px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 25px; padding-bottom: 45px; }
+      .contact h2 { font-size: 46px; }
+      .contact-copy { font-size: 16px; }
+      .contact-mark { display: none; }
+      .contact-actions { display: grid; grid-template-columns: 1fr 1fr; }
+      .contact-actions .button { padding-inline: 12px; font-size: 13px; }
+      .contact-info { grid-template-columns: 1fr 1fr; gap: 21px 15px; }
+      .footer { padding: 38px 0 18px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 29px 18px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; margin-top: 30px; }
+      .footer-bottom a { margin: 0 14px 0 0; }
+      .mobile-cta { position: fixed; z-index: 18; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 1fr auto; gap: 9px; padding: 10px 15px max(10px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(247,244,238,.96); backdrop-filter: blur(12px); }
+      .mobile-cta .button { min-height: 46px; }
+      .mobile-cta .icon-button { width: 46px; height: 46px; }
+    }
+    @media (max-width: 380px) {
+      .wrap { width: calc(100% - 30px); }
+      .brand-copy { display: none; }
+      .hero h1 { font-size: 40px; }
+      .journey-card { grid-template-columns: 32% 1fr; }
+      .journey-card img { min-height: 190px; }
+      .contact-actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Nathalia Reschke Pure Energy, início">
+        <img class="brand-mark" src="assets/logo%20header.png" alt="">
+        <span class="brand-copy"><strong>Nathalia Reschke</strong><small>PURE ENERGY</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" data-t="nav.about">Sobre</a><a href="#services" data-t="nav.services">Sessões</a><a href="#groups" data-t="nav.groups">Grupos &amp; Cerimônias</a><a href="#journeys" data-t="nav.journeys">Mentorias</a>
+      </div>
+      <div class="language" aria-label="Language">
+        <button type="button" data-lang="pt" aria-label="Português" aria-pressed="true"><span class="flag">🇧🇷</span></button>
+        <button type="button" data-lang="en" aria-label="English" aria-pressed="false"><span class="flag">🇦🇺</span></button>
+      </div>
+      <a class="button nav-book" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
+    </nav>
+  </header>
+  <div class="mobile-panel" id="mobile-menu">
+    <a href="#about" data-t="nav.about">Sobre</a><a href="#services" data-t="nav.services">Sessões</a><a href="#groups" data-t="nav.groups">Grupos &amp; Cerimônias</a><a href="#journeys" data-t="nav.journeys">Mentorias</a>
+    <div class="language" aria-label="Language"><button type="button" data-lang="pt" aria-label="Português" aria-pressed="true"><span class="flag">🇧🇷</span></button><button type="button" data-lang="en" aria-label="English" aria-pressed="false"><span class="flag">🇦🇺</span></button><span data-t="language">Idioma</span></div>
+    <a class="button" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+          <img class="hero-image" src="assets/hero%20photo.png" alt="Nathalia em um momento de contemplação na praia" fetchpriority="high">
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <div class="hero-inner wrap">
+        <div class="hero-copy">
+          <p class="eyebrow" data-t="hero.eyebrow">Psicoterapeuta · terapeuta corporal · terapeuta integrativa</p>
+          <h1 id="hero-title" data-t="hero.title">Entre o que você aprendeu a ser e aquilo que reconhece como verdadeiro em você, <em>existe um espaço.</em></h1>
+          <p class="hero-sub" data-t="hero.subtitle">Um espaço de retorno, escuta e reconexão entre mente, corpo e espírito.</p>
+          <p class="hero-description" data-t="hero.description">Meu trabalho é te acompanhar nesse processo com presença e uma abordagem integrativa.</p>
+          <a class="button" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <span class="hero-note">Gold Coast · Australia</span>
+      <a class="scroll-cue" href="#about" aria-label="Rolar para conhecer Nathalia">↓</a>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-grid wrap">
+        <div class="about-photo reveal">
+          <div class="about-photo-main"><img src="assets/nathalia.png" alt="Nathalia sentada em um momento de presença" loading="lazy"></div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow" data-t="about.eyebrow">Olá,</p>
+          <h2 data-t="about.title">eu sou<br>a <em>Nathalia</em></h2>
+          <p data-t="about.p1">Sou psicoterapeuta, terapeuta corporal e terapeuta integrativa. Meu trabalho parte de uma ideia simples: mente, corpo e espírito não existem separados.</p>
+          <p data-t="about.p2">Por isso, integro psicoterapia, trabalho corporal e práticas somáticas e energéticas, e adapto as ferramentas a cada pessoa, não o contrário.</p>
+          <p data-t="about.p3">Não tenho as respostas sobre a sua vida. Acredito que você já as carrega. Meu papel é criar espaço para que consiga escutá-las.</p>
+          <div class="signature">Vai com alma.</div>
+          <a class="button button--outline" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="wrap">
+        <div class="section-topline">
+          <div class="section-heading reveal"><p class="eyebrow" data-t="services.eyebrow">Por onde começar</p><h2 data-t="services.title">Escolha seu caminho</h2><p data-t="services.subtitle">Quatro caminhos para explorar mente, corpo, consciência e relação consigo.</p></div>
+          <div class="carousel-controls"><button class="icon-button" type="button" data-scroll="services-track" data-dir="-1" aria-label="Sessões anteriores">←</button><button class="icon-button" type="button" data-scroll="services-track" data-dir="1" aria-label="Próximas sessões">→</button></div>
+        </div>
+        <div class="carousel" id="services-track" tabindex="0" aria-label="Sessões disponíveis"></div>
+        <div class="carousel-dots" id="services-dots" aria-label="Posição no carrossel"></div>
+        <p class="service-help" data-t="services.help">Não sabe qual escolher? <a class="text-link" href="#contact">Fale comigo</a></p>
+      </div>
+    </section>
+
+    <section class="quote" aria-label="Uma reflexão sobre transformação">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" alt="Luz suave sobre uma paisagem natural" loading="lazy">
+      <div class="quote-inner reveal"><blockquote data-t="quote.text">Talvez a transformação mais profunda não seja se tornar alguém novo. Talvez seja lembrar quem você é.</blockquote><p class="signature">Vai com alma.</p></div>
+    </section>
+
+    <section class="groups section" id="groups">
+      <div class="wrap">
+        <div class="section-topline">
+          <div class="section-heading reveal"><p class="eyebrow" data-t="groups.eyebrow">Encontros para compartilhar</p><h2 data-t="groups.title">Grupos &amp; Cerimônias</h2><p data-t="groups.subtitle">Alguns processos são feitos para serem vividos juntos.</p></div>
+          <div class="carousel-controls"><button class="icon-button" type="button" data-scroll="groups-track" data-dir="-1" aria-label="Encontros anteriores">←</button><button class="icon-button" type="button" data-scroll="groups-track" data-dir="1" aria-label="Próximos encontros">→</button></div>
+        </div>
+        <div class="carousel" id="groups-track" tabindex="0" aria-label="Grupos e cerimônias"></div>
+        <div class="carousel-dots" id="groups-dots"></div>
+        <div class="center-action"><a class="button" href="https://calendly.com/" target="_blank" rel="noreferrer"><span data-t="groups.book">Ver próximos encontros</span><span class="arrow">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="journeys section" id="journeys">
+      <div class="wrap">
+        <div class="section-heading reveal"><p class="eyebrow" data-t="journeys.eyebrow">Processos com tempo</p><h2 data-t="journeys.title">Mentorias</h2><p data-t="journeys.subtitle">Para quem quer ir mais fundo, com tempo e acompanhamento.</p></div>
+        <div class="journey-grid" id="journey-grid"></div>
+        <div class="center-action"><a class="button" data-t="journeys.book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão inicial <span class="arrow">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="moments section" id="moments">
+      <div class="wrap">
+        <div class="section-heading reveal"><p class="eyebrow" data-t="moments.eyebrow">Fragmentos de presença</p><h2 data-t="moments.title">Momentos</h2></div>
+        <div class="gallery" id="gallery"></div>
+        <div class="center-action"><a class="button button--outline" href="https://instagram.com/" target="_blank" rel="noreferrer"><span data-t="moments.follow">Seguir no Instagram</span><span class="arrow">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner wrap">
+        <div class="reveal"><p class="eyebrow" data-t="contact.eyebrow">Seu próximo passo, no seu tempo</p><h2 data-t="contact.title">Você não precisa chegar pronta.</h2><p class="contact-copy" data-t="contact.copy">Às vezes, começar é apenas reconhecer: existe algo dentro de mim pedindo para ser visto.</p><div class="contact-actions"><a class="button" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a><a class="button button--light" href="#contact-info"><span data-t="contact.message">Falar comigo</span></a></div></div>
+        <svg class="contact-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 55C24 43 24 26 32 8c8 18 8 35 0 47Z" stroke="currentColor"/><path d="M32 53C16 48 8 39 5 27c13 0 23 6 27 19M32 53c16-5 24-14 27-26-13 0-23 6-27 19M32 48C22 34 19 22 22 12c8 6 12 15 10 27M32 48c10-14 13-26 10-36-8 6-12 15-10 27" stroke="currentColor"/></svg>
+      </div>
+      <div class="contact-info wrap" id="contact-info"><p><strong data-t="contact.locationTitle">Onde estou</strong>Gold Coast, Queensland<br><span data-t="contact.location">Presencial e online</span></p><p><strong>WhatsApp</strong><a href="https://wa.me/" target="_blank" rel="noreferrer">+61 · contato em breve</a></p><p><strong>E-mail</strong><a href="mailto:hello@pureenergy.example">hello@pureenergy.example</a></p><p><strong>Instagram</strong><a href="https://instagram.com/" target="_blank" rel="noreferrer">@pureenergy · perfil em breve</a></p></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid wrap">
+      <div class="footer-brand"><a class="brand" href="#top"><img class="brand-mark" src="assets/logo%20footer.png" alt=""><span class="brand-copy"><strong>Nathalia Reschke</strong><small>PURE ENERGY</small></span></a><p>Mind · Body · Spirit in Balance</p><p>Vai com alma.</p></div>
+      <div class="footer-column"><h3 data-t="footer.navigation">Navegação</h3><a href="#about" data-t="nav.about">Sobre</a><a href="#services" data-t="nav.services">Sessões</a><a href="#groups" data-t="nav.groups">Grupos &amp; Cerimônias</a><a href="#journeys" data-t="nav.journeys">Mentorias</a></div>
+      <div class="footer-column"><h3 data-t="footer.contact">Contato</h3><a href="#contact-info">Gold Coast, Queensland</a><a href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:hello@pureenergy.example">E-mail</a></div>
+      <div class="footer-column"><h3 data-t="footer.language">Idioma &amp; redes</h3><div class="language"><button type="button" data-lang="pt" aria-label="Português" aria-pressed="true"><span class="flag">🇧🇷</span></button><button type="button" data-lang="en" aria-label="English" aria-pressed="false"><span class="flag">🇦🇺</span></button></div><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+    </div>
+    <div class="footer-bottom wrap"><span>© 2026 Nathalia Reschke · Pure Energy</span><span><a href="#contact" data-t="footer.privacy">Política de privacidade</a><a href="#contact" data-t="footer.terms">Termos</a></span></div>
+  </footer>
+  <div class="mobile-cta"><a class="button" data-t="book" href="https://calendly.com/" target="_blank" rel="noreferrer">Agendar sessão <span class="arrow">→</span></a><a class="icon-button" href="#contact-info" aria-label="Falar pelo WhatsApp">◉</a></div>
+  <dialog id="lightbox"><button class="lightbox-close" type="button" aria-label="Fechar">×</button><img class="lightbox-image" alt=""><p class="lightbox-caption"></p></dialog>
+
+  <script>
+    const copy = {
+      pt: {
+        nav: { about: "Sobre", services: "Sessões", groups: "Grupos & Cerimônias", journeys: "Mentorias" },
+        book: "Agendar sessão <span class=\"arrow\">→</span>", language: "Idioma",
+        hero: { eyebrow: "Psicoterapeuta · terapeuta corporal · terapeuta integrativa", title: "Entre o que você aprendeu a ser e aquilo que reconhece como verdadeiro em você, <em>existe um espaço.</em>", subtitle: "Um espaço de retorno, escuta e reconexão entre mente, corpo e espírito.", description: "Meu trabalho é te acompanhar nesse processo com presença e uma abordagem integrativa." },
+        about: { eyebrow: "Olá,", title: "eu sou<br>a <em>Nathalia</em>", p1: "Sou psicoterapeuta, terapeuta corporal e terapeuta integrativa. Meu trabalho parte de uma ideia simples: mente, corpo e espírito não existem separados.", p2: "Por isso, integro psicoterapia, trabalho corporal e práticas somáticas e energéticas, e adapto as ferramentas a cada pessoa, não o contrário.", p3: "Não tenho as respostas sobre a sua vida. Acredito que você já as carrega. Meu papel é criar espaço para que consiga escutá-las." },
+        services: { eyebrow: "Por onde começar", title: "Escolha seu caminho", subtitle: "Quatro caminhos para explorar mente, corpo, consciência e relação consigo.", help: "Não sabe qual escolher? <a class=\"text-link\" href=\"#contact\">Fale comigo</a>" },
+        quote: { text: "Talvez a transformação mais profunda não seja se tornar alguém novo. Talvez seja lembrar quem você é." },
+        groups: { eyebrow: "Encontros para compartilhar", title: "Grupos & Cerimônias", subtitle: "Alguns processos são feitos para serem vividos juntos.", book: "Ver próximos encontros" },
+        journeys: { eyebrow: "Processos com tempo", title: "Mentorias", subtitle: "Para quem quer ir mais fundo, com tempo e acompanhamento.", book: "Agendar sessão inicial <span class=\"arrow\">→</span>" },
+        moments: { eyebrow: "Fragmentos de presença", title: "Momentos", follow: "Seguir no Instagram" },
+        contact: { eyebrow: "Seu próximo passo, no seu tempo", title: "Você não precisa chegar pronta.", copy: "Às vezes, começar é apenas reconhecer: existe algo dentro de mim pedindo para ser visto.", message: "Falar comigo", locationTitle: "Onde estou", location: "Presencial e online" },
+        footer: { navigation: "Navegação", contact: "Contato", language: "Idioma & redes", privacy: "Política de privacidade", terms: "Termos" },
+        servicesList: [
+          ["Psicoterapia", "Mente", "Escuta e consciência para emoções, relações e padrões que se repetem.", "a partir de $125"],
+          ["Constelação Familiar", "Mente", "Um olhar sistêmico para a família e as relações.", "$280"],
+          ["Integrative Bodywork", "Corpo", "Uma sessão corporal construída para o que o seu corpo precisa hoje.", "a partir de $135"],
+          ["Pure Energy Massage", "Corpo", "Drenagem, relaxamento e regulação do sistema nervoso em uma só sessão.", "a partir de $180"],
+          ["Drenagem Linfática", "Corpo", "Leveza, circulação e relaxamento.", "a partir de $100"],
+          ["Massagem Relaxante", "Corpo", "Um momento para desacelerar.", "a partir de $100"],
+          ["Liberação de Tensão Muscular", "Corpo", "Alívio para as áreas mais sobrecarregadas.", "a partir de $120"],
+          ["Somatic Release", "Corpo", "Escuta profunda pelo corpo, sem forçar nada.", "$230"],
+          ["Reiki", "Energia & Espírito", "Presença e cuidado energético.", "$120"],
+          ["Sessão Integrativa", "Sob medida", "Uma sessão desenhada para o seu momento.", "a partir de $260"]
+        ],
+        groupsList: ["Cerimônias de Cacau", "Cerimônias do Fogo", "Constelações Familiares", "Círculos de Mulheres", "Breathwork", "Liberação Somática em Grupo", "Blessing Ceremonies", "Cerimônias Privadas"],
+        journeysList: [
+          ["Arquitetura da Alma", "10 sessões para compreender seus padrões e sua estrutura interna.", "10 sessões"],
+          ["ENTRE", "Eneagrama vivencial para entender seus padrões automáticos.", "Eneagrama"],
+          ["Mentoria Sistêmica", "8 sessões para olhar para si dentro da família e dos vínculos.", "8 sessões"],
+          ["Consciência do Eu", "Para reencontrar quem você é por baixo dos papéis.", "" ]
+        ]
+      },
+      en: {
+        nav: { about: "About", services: "Sessions", groups: "Groups & Ceremonies", journeys: "Mentoring" },
+        book: "Book a session <span class=\"arrow\">→</span>", language: "Language",
+        hero: { eyebrow: "Psychotherapist · body therapist · integrative therapist", title: "Between who you learned to be and what you recognise as true within you, <em>there is space.</em>", subtitle: "A space to return, listen and reconnect mind, body and spirit.", description: "I’m here to accompany you through this process with presence and an integrative approach." },
+        about: { eyebrow: "Hello,", title: "I am<br><em>Nathalia</em>", p1: "I'm a psychotherapist, body therapist and integrative therapist. My work starts from a simple idea: mind, body and spirit don't exist separately.", p2: "That's why I bring together psychotherapy, bodywork, and somatic and energy practices, adapting the tools to each person, never the other way around.", p3: "I don't have the answers to your life. I believe you already carry them. My role is to create space for you to hear them." },
+        services: { eyebrow: "Where to begin", title: "Choose your path", subtitle: "Four ways to explore mind, body, awareness and your relationship with yourself.", help: "Not sure which to choose? <a class=\"text-link\" href=\"#contact\">Talk to me</a>" },
+        quote: { text: "Perhaps the deepest transformation isn't becoming someone new. Perhaps it's remembering who you are." },
+        groups: { eyebrow: "Gathering together", title: "Groups & Ceremonies", subtitle: "Some processes are meant to be lived together.", book: "View upcoming events" },
+        journeys: { eyebrow: "Room for the process", title: "Mentoring", subtitle: "For those who want to go deeper, with time and support.", book: "Book an initial session <span class=\"arrow\">→</span>" },
+        moments: { eyebrow: "Small moments of presence", title: "Moments", follow: "Follow on Instagram" },
+        contact: { eyebrow: "Your next step, in your own time", title: "You don't have to arrive ready.", copy: "Sometimes, beginning is simply recognising: something inside me is asking to be seen.", message: "Get in touch", locationTitle: "Find me", location: "In person and online" },
+        footer: { navigation: "Explore", contact: "Contact", language: "Language & social", privacy: "Privacy policy", terms: "Terms" },
+        servicesList: [
+          ["Psychotherapy", "Mind", "Listening and awareness for emotions, relationships and repeating patterns.", "from $125"],
+          ["Family Constellations", "Mind", "A systemic view of family and relationships.", "$280"],
+          ["Integrative Bodywork", "Body", "A bodywork session built around what your body needs today.", "from $135"],
+          ["Pure Energy Massage", "Body", "Lymphatic drainage, relaxation and nervous system regulation in one session.", "from $180"],
+          ["Lymphatic Drainage", "Body", "Lightness, circulation and relaxation.", "from $100"],
+          ["Relaxing Massage", "Body", "A moment to slow down.", "from $100"],
+          ["Muscle Tension Release", "Body", "Relief for the most overloaded areas.", "from $120"],
+          ["Somatic Release", "Body", "Deep listening through the body, without forcing anything.", "$230"],
+          ["Reiki", "Energy & Spirit", "Presence and energetic care.", "$120"],
+          ["Integrative Session", "Tailored", "A session designed around your moment.", "from $260"]
+        ],
+        groupsList: ["Cacao Ceremonies", "Fire Ceremonies", "Family Constellations", "Women's Circles", "Breathwork", "Somatic Release Groups", "Blessing Ceremonies", "Private Ceremonies"],
+        journeysList: [
+          ["Arquitetura da Alma", "10 sessions to understand your patterns and inner structure.", "10 sessions"],
+          ["ENTRE", "Experiential Enneagram to understand your automatic patterns.", "Enneagram"],
+          ["Systemic Mentoring", "8 sessions to look at yourself within your family and relationships.", "8 sessions"],
+          ["Consciência do Eu", "To meet who you are beneath your roles.", "" ]
+        ]
+      }
+    };
+
+    const serviceImages = [
+      "photo-1506126613408-eca07ce68773", "photo-1518611012118-696072aa579a", "photo-1540555700478-4be289fbecef", "photo-1600334089648-b0d9d3028eb2", "photo-1544161515-4ab6ce6db874", "photo-1540555700478-4be289fbecef", "photo-1519823551278-64ac92734fb1", "photo-1518611012118-696072aa579a", "photo-1506126613408-eca07ce68773", "photo-1544367567-0f2fcb009e0b"
+    ];
+    const groupImages = ["photo-1500530855697-b586d89ba3ee", "photo-1519681393784-d120267933ba", "photo-1518611012118-696072aa579a", "photo-1511988617509-a57c8a288659", "photo-1506126613408-eca07ce68773", "photo-1544367567-0f2fcb009e0b", "photo-1518495973542-4542c06a5843", "photo-1470252649378-9c29740c9fa8"];
+    const journeyImages = ["photo-1500530855697-b586d89ba3ee", "photo-1500534623283-312aade485b7", "photo-1519681393784-d120267933ba", "photo-1506126613408-eca07ce68773"];
+    const galleryImages = ["photo-1544367567-0f2fcb009e0b", "photo-1518611012118-696072aa579a", "photo-1519681393784-d120267933ba", "photo-1506126613408-eca07ce68773", "photo-1540555700478-4be289fbecef", "photo-1511988617509-a57c8a288659", "photo-1500530855697-b586d89ba3ee", "photo-1518495973542-4542c06a5843"];
+    const imageUrl = (id, width = 700) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=82`;
+    let language = localStorage.getItem("pure-energy-language") || (navigator.language.toLowerCase().startsWith("en") ? "en" : "pt");
+
+    function renderCards() {
+      const data = copy[language];
+      const services = data.servicesList.map((item, index) => `<article class="service-card"><div class="service-image"><img src="${imageUrl(serviceImages[index])}" alt="" loading="lazy"><span class="service-tag">${item[1]}</span></div><div class="service-card-body"><h3>${item[0]}</h3><p>${item[2]}</p><div class="service-card-foot"><span class="price">${item[3]}</span>${index === 3 ? `<span class="signature-tag">${language === "pt" ? "Assinatura" : "Signature"}</span>` : ""}</div><a class="button book-small" href="https://calendly.com/" target="_blank" rel="noreferrer">${language === "pt" ? "Agendar" : "Book"} <span class="arrow">→</span></a></div></article>`).join("");
+      document.querySelector("#services-track").innerHTML = services;
+      document.querySelector("#services-dots").innerHTML = data.servicesList.map((_, index) => `<button class="carousel-dot${index === 0 ? " active" : ""}" type="button" data-index="${index}" aria-label="${language === "pt" ? "Ir para sessão" : "Go to session"} ${index + 1}"></button>`).join("");
+      document.querySelector("#groups-track").innerHTML = data.groupsList.map((name, index) => `<article class="group-card"><img src="${imageUrl(groupImages[index])}" alt="" loading="lazy"><h3>${name}</h3></article>`).join("");
+      document.querySelector("#groups-dots").innerHTML = data.groupsList.map((_, index) => `<button class="carousel-dot${index === 0 ? " active" : ""}" type="button" data-index="${index}" aria-label="${language === "pt" ? "Ir para encontro" : "Go to event"} ${index + 1}"></button>`).join("");
+      document.querySelector("#journey-grid").innerHTML = data.journeysList.map((item, index) => `<article class="journey-card"><img src="${imageUrl(journeyImages[index])}" alt="" loading="lazy"><div class="journey-body"><h3>${item[0]}</h3><p>${item[1]}</p>${item[2] ? `<span class="journey-format">${item[2]}</span>` : ""}</div></article>`).join("");
+      document.querySelector("#gallery").innerHTML = galleryImages.map((id, index) => `<button class="gallery-item" type="button" data-index="${index}" aria-label="${language === "pt" ? "Ampliar foto" : "Enlarge photo"} ${index + 1}"><img src="${imageUrl(id, 800)}" alt="${language === "pt" ? "Momento de uma sessão ou encontro" : "A moment from a session or gathering"}" loading="lazy"></button>`).join("");
+      observeReveals();
+    }
+
+    function setLanguage(next) {
+      language = next;
+      localStorage.setItem("pure-energy-language", next);
+      document.documentElement.lang = next === "pt" ? "pt-BR" : "en-AU";
+      document.querySelectorAll("[data-t]").forEach((element) => {
+        const value = element.dataset.t.split(".").reduce((object, key) => object?.[key], copy[next]);
+        if (value) element.innerHTML = value;
+      });
+      document.querySelectorAll("[data-lang]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === next)));
+      document.querySelector(".menu-toggle").setAttribute("aria-label", next === "pt" ? "Abrir menu" : "Open menu");
+      renderCards();
+    }
+
+    document.addEventListener("click", (event) => {
+      const langButton = event.target.closest("[data-lang]");
+      if (langButton) setLanguage(langButton.dataset.lang);
+      const scrollButton = event.target.closest("[data-scroll]");
+      if (scrollButton) {
+        const track = document.getElementById(scrollButton.dataset.scroll);
+        track.scrollBy({ left: track.clientWidth * .78 * Number(scrollButton.dataset.dir), behavior: "smooth" });
+      }
+      const dot = event.target.closest(".carousel-dot");
+      if (dot) {
+        const track = dot.closest(".wrap").querySelector(".carousel");
+        const card = track.children[Number(dot.dataset.index)];
+        if (card) track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: "smooth" });
+      }
+      const galleryButton = event.target.closest(".gallery-item");
+      if (galleryButton) {
+        const index = Number(galleryButton.dataset.index);
+        const dialog = document.querySelector("#lightbox");
+        dialog.querySelector("img").src = imageUrl(galleryImages[index], 1600);
+        dialog.querySelector("img").alt = galleryButton.querySelector("img").alt;
+        dialog.querySelector(".lightbox-caption").textContent = `${index + 1} / ${galleryImages.length}`;
+        dialog.showModal();
+      }
+    });
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector("#mobile-menu");
+    function closeMenu() { menuButton.setAttribute("aria-expanded", "false"); mobilePanel.classList.remove("open"); document.body.classList.remove("menu-open"); document.querySelector("#header").classList.remove("menu-visible"); }
+    menuButton.addEventListener("click", () => {
+      const open = menuButton.getAttribute("aria-expanded") !== "true";
+      menuButton.setAttribute("aria-expanded", String(open)); mobilePanel.classList.toggle("open", open); document.body.classList.toggle("menu-open", open); document.querySelector("#header").classList.toggle("menu-visible", open);
+    });
+    mobilePanel.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    document.querySelector("#lightbox .lightbox-close").addEventListener("click", () => document.querySelector("#lightbox").close());
+    document.querySelector("#lightbox").addEventListener("click", (event) => { if (event.target === event.currentTarget) event.currentTarget.close(); });
+
+    const header = document.querySelector("#header");
+    const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 30);
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
+
+    function observeReveals() {
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }), { threshold: .12 });
+      document.querySelectorAll(".reveal:not(.visible)").forEach((element) => observer.observe(element));
+    }
+    ["services-track", "groups-track"].forEach((trackId) => {
+      const track = document.getElementById(trackId);
+      const dots = document.getElementById(trackId.replace("-track", "-dots"));
+      track.addEventListener("scroll", () => {
+        const cards = [...track.children];
+        let closest = 0;
+        cards.forEach((card, index) => { if (Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft) < Math.abs(cards[closest].offsetLeft - track.offsetLeft - track.scrollLeft)) closest = index; });
+        dots.querySelectorAll(".carousel-dot").forEach((dot, index) => dot.classList.toggle("active", index === closest));
+      }, { passive: true });
+    });
+    setLanguage(language);
+  </script>
+</body>
+</html>
